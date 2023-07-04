@@ -1,0 +1,11 @@
+services:
+  couchdb:
+    volumes:
+      - "/srv/planet-test/conf:/opt/couchdb/etc/local.d"
+      - "/srv/planet-test/data:/opt/couchdb/data"
+      - "/srv/planet-test/log:/opt/couchdb/var/log"
+  planet:
+    volumes:
+      - "/srv/planet-test/pwd:/usr/share/nginx/html/credentials"
+      - "/srv/planet-test/fs:/usr/share/nginx/html/fs"
+version: "2"

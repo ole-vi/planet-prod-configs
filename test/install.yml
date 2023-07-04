@@ -1,0 +1,8 @@
+services:
+  db-init:
+    image: treehouses/planet:db-init-test
+    environment:
+      - INSTALL=1
+  planet:
+    image: treehouses/planet:test
+version: "2"
