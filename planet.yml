@@ -11,6 +11,17 @@ services:
       - couchdb
     environment:
       - COUCHDB_HOST=http://couchdb:5984
+  chatapi:
+    image: treehouses/planet:chatapi-local
+    depends_on:
+      - couchdb
+    ports:
+      - "5000:5000"
+    environment:
+      - COUCHDB_HOST=http://couchdb:5984
+      - SERVE_PORT=5000
+    env_file:
+      - .chat.env
   planet:
     image: treehouses/planet:local
     ports:
