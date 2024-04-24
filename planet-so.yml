@@ -1,0 +1,52 @@
+# Planet standalone yml file
+
+services:
+  couchdb:
+    expose:
+      - 5984
+    image: treehouses/couchdb:2.3.1
+    ports:
+      - "2200:5984"
+    volumes:
+      - "/srv/planet/conf:/opt/couchdb/etc/local.d"
+      - "/srv/planet/data:/opt/couchdb/data"
+      - "/srv/planet/log:/opt/couchdb/var/log"
+  chatapi:
+    expose:
+      - 5000
+    image: treehouses/planet:chatapi-local
+    depends_on:
+      - couchdb
+    ports:
+      - "5000:5000"
+    environment:
+      - COUCHDB_HOST=http://couchdb:5984
+      - SERVE_PORT=5000
+    env_file:
+      - .chat.env
+  db-init:
+    image: treehouses/planet:db-init-local
+    depends_on:
+      - couchdb
+    environment:
+      - COUCHDB_HOST=http://couchdb:5984
+      #- COUCHDB_USER=admin
+      #- COUCHDB_PASS=admin
+  planet:
+    image: treehouses/planet:local
+    ports:
+      - "80:80"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/srv/planet/pwd:/usr/share/nginx/html/credentials"
+      - "/srv/planet/fs:/usr/share/nginx/html/fs"
+      #- "/srv/planet/conf.d:/etc/nginx/conf.d"
+    environment:
+      - MULTIPLE_IPS=true
+      - HOST_PROTOCOL=http
+      - DB_HOST=127.0.0.1
+      - DB_PORT=2200
+      - CENTER_ADDRESS=planet.earth.ole.org/db
+    depends_on:
+      - couchdb
+version: "2"
