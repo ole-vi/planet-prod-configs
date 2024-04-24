@@ -1,6 +1,6 @@
 services:
   db-init:
-    image: treehouses/planet:db-init
+    image: treehouses/planet:db-init-local
     environment:
       - INSTALL=1
   planet:
