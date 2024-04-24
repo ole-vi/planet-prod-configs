@@ -4,13 +4,13 @@
 services:
   couchdb:
     volumes:
-      - "/srv/planet-prod/conf:/opt/couchdb/etc/local.d"
-      - "/srv/planet-prod/data:/opt/couchdb/data"
-      - "/srv/planet-prod/log:/opt/couchdb/var/log"
+      - "/srv/planet/conf:/opt/couchdb/etc/local.d"
+      - "/srv/planet/data:/opt/couchdb/data"
+      - "/srv/planet/log:/opt/couchdb/var/log"
   planet:
     volumes:
-      - "/srv/planet-prod/pwd:/usr/share/nginx/html/credentials"
-      - "/srv/planet-prod/fs:/usr/share/nginx/html/fs"
+      - "/srv/planet/pwd:/usr/share/nginx/html/credentials"
+      - "/srv/planet/fs:/usr/share/nginx/html/fs"
       # - "/srv/planet/src/src/assets/landing-page/video/landing.mp4:/usr/share/nginx/html/nep/assets/landing-page/video/landing.mp4"
       # - "/srv/planet/src/src/assets/landing-page/video/landing.mp4:/usr/share/nginx/html/som/assets/landing-page/video/landing.mp4"
       # - "/srv/planet/src/src/assets/landing-page/video/landing.mp4:/usr/share/nginx/html/ara/assets/landing-page/video/landing.mp4"
