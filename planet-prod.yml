@@ -45,7 +45,7 @@ services:
       - MULTIPLE_IPS=true
       - HOST_PROTOCOL=http
       - DB_HOST=127.0.0.1
-      - DB_PORT=2200
+      - DB_PORT=2300
       - CENTER_ADDRESS=planet.earth.ole.org/db
     depends_on:
       - couchdb
