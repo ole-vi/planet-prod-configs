@@ -35,7 +35,7 @@ services:
   planet:
     image: treehouses/planet:local
     ports:
-      - "3100:80"
+      - "3300:80"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "/srv/planet/pwd:/usr/share/nginx/html/credentials"
