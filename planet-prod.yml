@@ -21,6 +21,8 @@ services:
       - "5050:5050"
     environment:
       - COUCHDB_HOST=http://couchdb:5984
+      #- COUCHDB_USER=admin
+      #- COUCHDB_PASS=admin
       - SERVE_PORT=5050
     env_file:
       - .chat.env
