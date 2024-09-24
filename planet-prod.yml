@@ -21,8 +21,8 @@ services:
       - "5050:5050"
     environment:
       - COUCHDB_HOST=http://couchdb:5984
-      - COUCHDB_USER=admin
-      - COUCHDB_PASS=admin
+      - COUCHDB_USER=planet
+      - COUCHDB_PASS=planet
       - SERVE_PORT=5050
     env_file:
       - .chat.env
@@ -32,8 +32,8 @@ services:
       - couchdb
     environment:
       - COUCHDB_HOST=http://couchdb:5984
-      - COUCHDB_USER=admin
-      - COUCHDB_PASS=admin
+      - COUCHDB_USER=planet
+      - COUCHDB_PASS=planet
   planet:
     image: treehouses/planet:local
     ports:
