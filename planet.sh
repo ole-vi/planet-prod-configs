@@ -1,17 +1,17 @@
 #!/bin/bash
 
 if [ "$1" == "up" ]; then
-  COMMAND="up -d"
+  CMD="up -d"
 elif [ "$1" == "down" ]; then
-  COMMAND="down -v"
+  CMD="down -v"
 else
-  COMMAND=$1
+  CMD=$1
 fi
 
 if [ -f /srv/planet/pwd/credentials.yml ]; then
-  docker compose -f /srv/planet/planet.yml -f /srv/planet/pwd/credentials.yml -p planet $1
+  docker compose -f /srv/planet/planet.yml -f /srv/planet/pwd/credentials.yml -p planet $CMD
 else
-  docker compose -f /srv/planet/planet.yml -p planet $1
+  docker compose -f /srv/planet/planet.yml -p planet $CMD
   docker wait 'planet_db-init_1'
   docker start 'planet_db-init_1'
 fi
