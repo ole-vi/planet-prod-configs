@@ -1,5 +1,18 @@
 #!/bin/bash
 
+if [ "$#" -lt 1 ]; then
+  echo "Argument is required."
+  echo ""
+  echo "Usage: $0 <up|stop|start|restart|down|(other docker compose command)...>"
+  echo "Example: $0 up       Start up the planet services for the first time in the background."
+  echo "         $0 stop     Stop planet services."
+  echo "         $0 start    Start planet services."
+  echo "         $0 restart  Restart planet services."
+  echo "         $0 down     Stop planet services and remove containers, networks, volumes, and images created."
+  echo ""
+  exit 1
+fi
+
 if [ "$1" == "up" ]; then
   CMD="up -d"
 elif [ "$1" == "down" ]; then
