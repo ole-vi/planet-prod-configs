@@ -22,7 +22,6 @@ services:
     environment:
       - COUCHDB_HOST=http://couchdb:5984
       - SERVE_PORT=5000
-    restart: always
   db-init:
     image: treehouses/planet:db-init-local
     depends_on:
