@@ -16,7 +16,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - COUCHDB_HOST=http://localhost:2200
+      - COUCHDB_HOST=http://couchdb:5984
       #- COUCHDB_USER=planet
       #- COUCHDB_PASS=planet
       - SERVE_PORT=5000
