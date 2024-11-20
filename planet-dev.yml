@@ -28,4 +28,3 @@ services:
       - COUCHDB_HOST=http://couchdb:5984
       #- COUCHDB_USER=planet
       #- COUCHDB_PASS=planet
-version: "2"
